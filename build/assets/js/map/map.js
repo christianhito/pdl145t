@@ -58,11 +58,11 @@ $(function() {
             series: {
                 regions: [{
                     values: {
-                        "US": '#5a5278',
-                        "SA": '#5a5278',
-                        "AU": '#5a5278',
-                        "IN": '#5a5278',
-                        "GB": '#5a5278',
+                        "US": '#1c478b ',
+                        "SA": '#1c478b ',
+                        "AU": '#1c478b ',
+                        "IN": '#1c478b ',
+                        "GB": '#1c478b ',
                     },
                     attribute: 'fill'
                 }]
@@ -82,7 +82,7 @@ $(function() {
             backgroundColor : 'transparent',
             regionStyle : {
                 initial : {
-                    fill : '#5a5278'
+                    fill : '#1c478b '
                 }
             }
         });    
@@ -92,7 +92,7 @@ $(function() {
             backgroundColor : 'transparent',
             regionStyle : {
                 initial : {
-                    fill : '#5a5278'
+                    fill : '#1c478b '
                 }
             }
         });
@@ -102,7 +102,7 @@ $(function() {
             backgroundColor : 'transparent',
             regionStyle : {
                 initial : {
-                    fill : '#5a5278'
+                    fill : '#1c478b '
                 }
             }
         });
@@ -112,7 +112,7 @@ $(function() {
             backgroundColor : 'transparent',
             regionStyle : {
                 initial : {
-                    fill : '#5a5278'
+                    fill : '#1c478b '
                 }
             }
         });    

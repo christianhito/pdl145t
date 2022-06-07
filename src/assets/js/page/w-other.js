@@ -75,7 +75,7 @@ $(function() {
                 [ 'data1', 'data2', 'data3']
             ],
             colors: {
-                'data1': '#5a5278',
+                'data1': '#1c478b ',
                 'data2': '#e4bd51',
                 'data3': '#001f71'
             },
@@ -198,7 +198,7 @@ $(function() {
         markers: markers,
         markerStyle: {
             initial: {
-                fill: '#5a5278',
+                fill: '#1c478b ',
                 stroke: '#fff',
                 "stroke-width": 1,
                 r: 5
@@ -210,13 +210,13 @@ $(function() {
         series: {
             regions: [{
                 values: data,
-                scale: ['#EFF3F6', '#5a5278'],
+                scale: ['#EFF3F6', '#1c478b '],
                 normalizeFunction: 'polynomial'
             }]
         },
         regionStyle: {
             initial: {
-                fill: '#5a5278'
+                fill: '#1c478b '
             }
         }
     });
