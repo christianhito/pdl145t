@@ -61,13 +61,45 @@ import Signup from './Authentication/signup';
 import ForgotPassword from './Authentication/forgotpassword';
 import NotFound from './Authentication/404';
 import InternalServer from './Authentication/500';
+import TerritoireDibaya from './KasaiCentral/TerritoireDibaya';
+import TerritoireDemba from './KasaiCentral/TerritoireDemba';
+import TerritoireKazumba from './KasaiCentral/TerritoireKazumba';
+import TerritoireLuiza from './KasaiCentral/TerritoireLuiza';
+import TerritoireDimbelenge from './KasaiCentral/TerritoireDimbelenge';
+import TerritoireLuebo from './Kasai/TerritoireLuebo';
+import TerritoireTshikapa from './Kasai/TerritoireTshikapa';
+import TerritoireIlebo from './Kasai/TerritoireIlebo';
+import TerritoireMweka from './Kasai/TerritoireMweka';
+import TerritoireDekese from './Kasai/TerritoireDekese';
+import TerritoireMiabi from './KasaiOriental/TerritoireMiabi';
+import TerritoireKabeyaKamwanga from './KasaiOriental/TerritoireKabeyaKamwanga';
+import TerritoireLupatapata from './KasaiOriental/TerritoireLupatapata';
+import TerritoireKatanda from './KasaiOriental/TerritoireKatanda';
+import TerritoireTshilenge from './KasaiOriental/TerritoireTshilenge';
+import TerritoireLuilu from './Lomami/TerritoireLuilu';
+import TerritoireKamiji from './Lomami/TerritoireKamiji';
+import TerritoireNgandajika from './Lomami/TerritoireNgandajika';
+import TerritoireKabinda from './Lomami/TerritoireKabinda';
+import TerritoireLubao from './Lomami/TerritoireLubao';
+import TerritoireMweneDitu from './Lomami/TerritoireMweneDitu';
+import TerritoireNyiragongo from './NordKivu/TerritoireNyiragongo';
+import TerritoireBeni from './NordKivu/TerritoireBeni';
+import TerritoireLubero from './NordKivu/TerritoireLubero';
+import TerritoireMasisi from './NordKivu/TerritoireMasisi';
+import TerritoireRutshuru from './NordKivu/TerritoireRutshuru';
+import TerritoireWalikale from './NordKivu/TerritoireWalikale';
+import TerritoireIrumu from './Ituri/TerritoireIrumu';
+import TerritoireMambasa from './Ituri/TerritoireMambasa';
+import TerritoireDjugu from './Ituri/TerritoireDjugu';
+import TerritoireMahagi from './Ituri/TerritoireMahagi';
+import TerritoireAru from './Ituri/TerritoireAru';
 
 const Routes = [
     {
         path: "/",
         name: 'Accueil',
         exact: true,
-        pageTitle: "Smart Wealth Control",
+        pageTitle: "Carte interactive des activités",
         component: Report
     },
     {
@@ -78,17 +110,17 @@ const Routes = [
         component: Users
     },
     {
-        path: "/hr-department",
+        path: "/hr-partnaire",
         name: 'department',
         exact: true,
-        pageTitle: "Departments",
+        pageTitle: "Centre partenaire",
         component: Departments
     },
     {
         path: "/hr-assure",
         name: 'employee',
         exact: true,
-        pageTitle: "Employee",
+        pageTitle: "Statut",
         component: Employee
     },
     {
@@ -505,6 +537,244 @@ const Routes = [
         exact: true,
         pageTitle: "Image Gallery",
         component: Gallery
+    },
+    // Kasai-central
+    {
+        path: "/territoire-dibaya",
+        name: 'Territoire-dibaya',
+        exact: true,
+        pageTitle: "Territoire de Dibaya",
+        component: TerritoireDibaya 
+    },
+    {
+        path: "/territoire-demba",
+        name: 'Territoire-demba',
+        exact: true,
+        pageTitle: "Territoire de Demba",
+        component: TerritoireDemba 
+    },
+    {
+        path: "/territoire-kazumba",
+        name: 'Territoire-kazumba',
+        exact: true,
+        pageTitle: "Territoire de Kazumba",
+        component: TerritoireKazumba 
+    },
+    {
+        path: "/territoire-luiza",
+        name: 'Territoire-luiza',
+        exact: true,
+        pageTitle: "Territoire de Luiza",
+        component: TerritoireLuiza 
+    },
+    {
+        path: "/territoire-dimbelenge",
+        name: 'Territoire-dimbelenge',
+        exact: true,
+        pageTitle: "Territoire de Dimbelenge",
+        component: TerritoireDimbelenge 
+    },
+
+    
+    // Kasai
+    {
+        path: "/territoire-luebo",
+        name: 'Territoire-luebo',
+        exact: true,
+        pageTitle: "Territoire de Luebo",
+        component: TerritoireLuebo 
+    },
+    {
+        path: "/territoire-tshikapa",
+        name: 'Territoire-tshikapa',
+        exact: true,
+        pageTitle: "Territoire de Tshikapa",
+        component: TerritoireTshikapa 
+    },
+    {
+        path: "/territoire-ilebo",
+        name: 'Territoire-ilebo',
+        exact: true,
+        pageTitle: "Territoire de Ilebo",
+        component: TerritoireIlebo 
+    },
+    {
+        path: "/territoire-mweka",
+        name: 'Territoire-mweka',
+        exact: true,
+        pageTitle: "Territoire de Mweka",
+        component: TerritoireMweka 
+    },
+    {
+        path: "/territoire-dekese",
+        name: 'Territoire-dekese',
+        exact: true,
+        pageTitle: "Territoire de Dekese",
+        component: TerritoireDekese 
+    },
+
+    
+    // Kasai-oriental 
+    {
+        path: "/territoire-miabi",
+        name: 'Territoire-miabi',
+        exact: true,
+        pageTitle: "Territoire de Miabi",
+        component: TerritoireMiabi
+    },
+    {
+        path: "/territoire-kabeya-kamwanga",
+        name: 'Territoire-kabeya-kamwanga',
+        exact: true,
+        pageTitle: "Territoire de Kabeya-Kamwanga",
+        component: TerritoireKabeyaKamwanga
+    },
+    {
+        path: "/territoire-lupatapata",
+        name: 'Territoire-lupatapata',
+        exact: true,
+        pageTitle: "Territoire de Lupatapata",
+        component: TerritoireLupatapata 
+    },
+    {
+        path: "/territoire-katanda",
+        name: 'Territoire-katanda',
+        exact: true,
+        pageTitle: "Territoire de Katanda",
+        component: TerritoireKatanda 
+    },
+    {
+        path: "/territoire-tshilenge",
+        name: 'Territoire-tshilenge',
+        exact: true,
+        pageTitle: "Territoire de Tshilenge",
+        component: TerritoireTshilenge 
+    },
+    
+    // Lomami 
+    {
+        path: "/territoire-luilu",
+        name: 'Territoire-luilu',
+        exact: true,
+        pageTitle: "Territoire de Luilu",
+        component: TerritoireLuilu
+    },
+    {
+        path: "/territoire-kamiji",
+        name: 'Territoire-kamiji',
+        exact: true,
+        pageTitle: "Territoire de Kamiji",
+        component: TerritoireKamiji
+    },
+    {
+        path: "/territoire-ngandajika",
+        name: 'Territoire-ngandajika',
+        exact: true,
+        pageTitle: "Territoire de Ngandajika",
+        component: TerritoireNgandajika 
+    },
+    {
+        path: "/territoire-kabinda",
+        name: 'Territoire-kabinda',
+        exact: true,
+        pageTitle: "Territoire de Kabinda",
+        component: TerritoireKabinda 
+    },
+    {
+        path: "/territoire-lubao",
+        name: 'Territoire-lubao',
+        exact: true,
+        pageTitle: "Territoire de Lubao",
+        component: TerritoireLubao 
+    },
+    {
+        path: "/territoire-mwene-ditu",
+        name: 'Territoire-mwene-ditu',
+        exact: true,
+        pageTitle: "Territoire de Mwene-Ditu",
+        component: TerritoireMweneDitu 
+    },
+    
+    // NordKivu
+    {
+        path: "/territoire-nyiragongo",
+        name: 'Territoire-nyiragongo',
+        exact: true,
+        pageTitle: "Territoire de Nyiragongo",
+        component: TerritoireNyiragongo
+    },
+    {
+        path: "/territoire-beni",
+        name: 'Territoire-beni',
+        exact: true,
+        pageTitle: "Territoire de Beni",
+        component: TerritoireBeni
+    },
+    {
+        path: "/territoire-lubero",
+        name: 'Territoire-lubero',
+        exact: true,
+        pageTitle: "Territoire de Lubero",
+        component: TerritoireLubero
+    },
+    {
+        path: "/territoire-masisi",
+        name: 'Territoire-masisi',
+        exact: true,
+        pageTitle: "Territoire de Masisi",
+        component: TerritoireMasisi
+    },
+    {
+        path: "/territoire-rutshuru",
+        name: 'Territoire-rutshuru',
+        exact: true,
+        pageTitle: "Territoire de Rutshuru",
+        component: TerritoireRutshuru
+    },
+    {
+        path: "/territoire-walikale",
+        name: 'Territoire-walikale',
+        exact: true,
+        pageTitle: "Territoire de Walikale",
+        component: TerritoireWalikale
+    },
+    
+    
+    // Ituri
+    {
+        path: "/territoire-irumu",
+        name: 'Territoire-irumu',
+        exact: true,
+        pageTitle: "Territoire de Irumu",
+        component: TerritoireIrumu
+    },
+    {
+        path: "/territoire-mambasa",
+        name: 'Territoire-mambasa',
+        exact: true,
+        pageTitle: "Territoire de Mambasa",
+        component: TerritoireMambasa
+    },
+    {
+        path: "/territoire-djugu",
+        name: 'Territoire-djugu',
+        exact: true,
+        pageTitle: "Territoire de Djugu",
+        component: TerritoireDjugu
+    },
+    {
+        path: "/territoire-mahagi",
+        name: 'Territoire-mahagi',
+        exact: true,
+        pageTitle: "Territoire de Mahagi",
+        component: TerritoireMahagi
+    },
+    {
+        path: "/territoire-aru",
+        name: 'Territoire-aru',
+        exact: true,
+        pageTitle: "Territoire de Aru",
+        component: TerritoireAru
     },
 ];
 

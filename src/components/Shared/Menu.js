@@ -5,6 +5,7 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import DefaultLink from './DefaultLink';
+import  drc from '../../assets/images/flags/democratic-republic-of-congo.png'
 
 
 import {
@@ -180,30 +181,30 @@ class Menu extends Component {
 
 	render() {
 		const content = [
-			{
-				"id": 'Directories',
-				"label": "Directories"
-			},
+			// {
+			// 	"id": 'Directories',
+			// 	"label": "Directories"
+			// },
 			{
 				"id": 1,
-				"icon": "fa fa-bank",
-				"label": "Rawsur",
-				"to": "#!",
-				content: [
-					{
-						"id": 3,
-						"label": "Accueil",
-						"to": "/"
-					},
-					{
-						"id": 4,
-						"label": "Utilisateurs",
-						"to": "/hr-users"
-					},
+				"icon": "",
+				"label": "PDL145T",
+				"to": "/",
+				// content: [
+					// {
+					// 	"id": 3,
+					// 	"label": "Accueil",
+					// 	"to": "/"
+					// },
+					// {
+					// 	"id": 4,
+					// 	"label": "Utilisateurs",
+					// 	"to": "/hr-users"
+					// },
 					// {
 					// 	"id": 5,
-					// 	"label": "Department",
-					// 	"to": "/hr-department"
+					// 	"label": "Centre partenaire ",
+					// 	"to": "/hr-partnaire"
 					// },
 					// {
 					// 	"id": 6,
@@ -240,6 +241,214 @@ class Menu extends Component {
 					// 	"label": "Report",
 					// 	"to": "/hr-report"
 					// }
+				// ]
+			},
+			
+			{
+				"id": 2,
+				"icon": "fa fa-folder",
+				"label": "Kasai-Central",
+				content: [
+					{
+						"id": 3,
+						"label": "Dibaya",
+						"to": "/territoire-dibaya"
+					},
+					{
+						"id": 4,
+						"label": "Demba",
+						"to": "/territoire-demba"
+					},
+					{
+						"id": 5,
+						"label": "Kazumba",
+						"to": "/territoire-kazumba"
+					},
+					{
+						"id": 6,
+						"label": "Luiza",
+						"to": "/territoire-luiza"
+					},
+					{
+						"id": 7,
+						"label": "Dimbelenge",
+						"to": "/territoire-dimbelenge"
+					},
+				]
+			},
+			
+			{
+				"id": 10,
+				"icon": "fa fa-folder",
+				"label": "Kasai",
+				content: [
+					{
+						"id": 11,
+						"label": "Luebo",
+						"to": "/territoire-luebo"
+					},
+					{
+						"id": 12,
+						"label": "Tshikapa",
+						"to": "/territoire-tshikapa	"
+					},
+					{
+						"id": 13,
+						"label": "Ilebo",
+						"to": "/territoire-ilebo"
+					},
+					{
+						"id": 14,
+						"label": "Mweka",
+						"to": "/territoire-mweka"
+					},
+					{
+						"id": 15,
+						"label": "Dekese",
+						"to": "/territoire-dekese"
+					},
+				]
+			},
+			
+			{
+				"id": 20,
+				"icon": "fa fa-folder",
+				"label": "Kasai-oriental",
+				content: [
+					{
+						"id": 21,
+						"label": "Miabi",
+						"to": "/territoire-miabi"
+					},
+					{
+						"id": 22,
+						"label": "Kabeya-Kamwanga",
+						"to": "/territoire-kabeya-kamwanga"
+					},
+					{
+						"id": 23,
+						"label": "Lupatapata",
+						"to": "/territoire-lupatapata"
+					},
+					{
+						"id": 24,
+						"label": "Katanda",
+						"to": "/territoire-katanda"
+					},
+					{
+						"id": 25,
+						"label": "Tshilenge",
+						"to": "/territoire-tshilenge"
+					},
+				]
+			},
+			
+			{
+				"id": 30,
+				"icon": "fa fa-folder",
+				"label": "Lomami",
+				content: [
+					{
+						"id": 31,
+						"label": "Luilu",
+						"to": "/territoire-luilu"
+					},
+					{
+						"id": 32,
+						"label": "Kamiji",
+						"to": "/territoire-kamiji"
+					},
+					{
+						"id": 33,
+						"label": "Ngandajika",
+						"to": "/territoire-ngandajika"
+					},
+					{
+						"id": 34,
+						"label": "Kabinda",
+						"to": "/territoire-kabinda"
+					},
+					{
+						"id": 35,
+						"label": "Lubao",
+						"to": "/territoire-lubao"
+					},
+					{
+						"id": 35,
+						"label": "Mwene-Ditu",
+						"to": "/territoire-mwene-ditu"
+					},
+				]
+			},
+			
+			{
+				"id": 40,
+				"icon": "fa fa-folder",
+				"label": "Nord-Kivu",
+				content: [
+					{
+						"id": 41,
+						"label": "Nyiragongo",
+						"to": "/territoire-nyiragongo"
+					},
+					{
+						"id": 42,
+						"label": "Beni",
+						"to": "/territoire-beni"
+					},
+					{
+						"id": 43,
+						"label": "Lubero",
+						"to": "/territoire-lubero"
+					},
+					{
+						"id": 44,
+						"label": "Masisi",
+						"to": "/territoire-masisi"
+					},
+					{
+						"id": 45,
+						"label": "Rutshuru",
+						"to": "/territoire-rutshuru"
+					},
+					{
+						"id": 46,
+						"label": "Walikale",
+						"to": "/territoire-walikale"
+					},
+				]
+			},
+			
+			{
+				"id": 50,
+				"icon": "fa fa-folder",
+				"label": "Ituri",
+				content: [
+					{
+						"id": 51,
+						"label": "Irumu",
+						"to": "/territoire-irumu"
+					},
+					{
+						"id": 52,
+						"label": "Mambasa",
+						"to": "/territoire-mambasa"
+					},
+					{
+						"id": 53,
+						"label": "Djugu",
+						"to": "/territoire-djugu"
+					},
+					{
+						"id": 54,
+						"label": "Mahagi",
+						"to": "/territoire-mahagi"
+					},
+					{
+						"id": 55,
+						"label": "Aru",
+						"to": "/territoire-Aru"
+					},
 				]
 			},
 			// {
@@ -292,9 +501,10 @@ class Menu extends Component {
 										onClick={() => this.handler('hr', 'accueil')}
 										className="header-brand"
 									>
-										<i className="fe fe-command brand-logo" />
-									</NavLink>
-									<div className="dropdown">
+										{/* <i className="fe fe-command brand-logo" /> */}
+										<img src={drc} style={{width: "35px" }} alt="drc" /> 
+									</NavLink> 
+									{/* <div className="dropdown">
 										<NavLink to="/page-search" className="nav-link icon">
 											<i className="fa fa-search" />
 										</NavLink>
@@ -310,7 +520,7 @@ class Menu extends Component {
 										<NavLink to="/app-filemanager" className="nav-link icon app_file xs-hide">
 											<i className="fa fa-folder-o" />
 										</NavLink>
-									</div>
+									</div> */}
 								</div>
 								<div className="hright">
 									<div className="dropdown">
@@ -322,15 +532,15 @@ class Menu extends Component {
 											title="Themes"
 										></i>
 									</a> */}
-										<span className="nav-link icon settingbar" onClick={this.toggleRightSidebar}>
+										{/* <span className="nav-link icon settingbar" onClick={this.toggleRightSidebar}>
 											<i
 												className="fa fa-gear fa-spin"
 												data-toggle="tooltip"
 												data-placement="right"
 												title="Settings"
 											/>
-										</span>
-										<p className="nav-link user_btn" onClick={this.toggleUserMenu}>
+										</span> */}
+										{/* <p className="nav-link user_btn" onClick={this.toggleUserMenu}>
 											<img
 												className="avatar"
 												src="/assets/images/user.png"
@@ -339,7 +549,7 @@ class Menu extends Component {
 												data-placement="right"
 												title="User Menu"
 											/>
-										</p>
+										</p> */}
 										<p className="nav-link icon menu_toggle" onClick={() => this.toggleLeftMenu(!istoggleLeftMenu)}>
 											<i className="fa  fa-align-left" />
 										</p>
@@ -352,11 +562,11 @@ class Menu extends Component {
 								<i className="fa fa-close" />
 							</span>
 							<ul className="nav nav-tabs" role="tablist">
-								<li className="nav-item">
+								{/* <li className="nav-item">
 									<a className="nav-link active" data-toggle="tab" href="#Settings" aria-expanded="true">
 										Settings
 								</a>
-								</li>
+								</li> */}
 								<li className="nav-item">
 									<a className="nav-link" data-toggle="tab" href="#activity" aria-expanded="false">
 										Activity
@@ -990,7 +1200,7 @@ class Menu extends Component {
 							</div>
 						</div>
 						<div id="left-sidebar" className="sidebar ">
-							<h5 className="brand-name">RAWSUR</h5>
+							<h5 className="brand-name">BCECO</h5>
 							<nav id="left-sidebar-nav" className="sidebar-nav">
 								<MetisMenu className=""
 									content={content}

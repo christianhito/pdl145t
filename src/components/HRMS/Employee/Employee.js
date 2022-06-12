@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
-import { connect, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
 	statisticsAction,
 	statisticsCloseAction
 } from '../../../actions/settingsAction';
-import { getPuaId, getPuaIdAnnuel, getPuaIdJour, getPuaIdMois, getPuaIdSemestre, getPuaIdTrimestre } from '../../../api/pua';
-import { getUtilisationAssuranceId } from '../../../api/utilisationAssurance';
+import { getPuaId, getPuaIdAnnuel, getPuaIdJour, getPuaIdMois, getPuaIdSemaine, getPuaIdSemestre, getPuaIdTrimestre } from '../../../api/pua';
+import { getUaIdAnnuel, getUaIdJour, getUaIdMois, getUaIdSemaine, getUaIdSemestre, getUaIdTrimestre, getUtilisationAssuranceId } from '../../../api/utilisationAssurance';
+import Pusher from 'pusher-js'
+import { setActive } from '../../../actions/notificationAction';
+import './Employee.css'
+
+
+
+
+
+const pusher = new Pusher("c20cc0972273bad02986", {
+    cluster: 'mt1'
+  })
 
 const Employee = (props) => {
 	
 	let history = useHistory()
+	const dispatch = useDispatch()
 
 	const provinceDataState = useSelector(state=> state.updateProvinceState.provinceDataState)  
-	console.log(provinceDataState)
+	console.log(provinceDataState._id)
 	
 	const { fixNavbar, statisticsOpen, statisticsClose } = props;
 
@@ -22,7 +34,11 @@ const Employee = (props) => {
     const [assureList, setAssureList] = useState([])
     const [activeLink, setActiveLink] = useState(0)
     const [puaList, setPuaList] = useState([])
-    const [puaId, setPuaId] = useState([])
+    const [filteId , setFilterId] = useState(null)
+    const [frequetation , setFrequentation] = useState("journalière")
+    const [puaId, setPuaId] = useState(null)
+    const [type_filter, setTypeFilter ] = useState("prov")
+	// type_filter
 
 	
     useEffect(()=>{
@@ -33,11 +49,13 @@ const Employee = (props) => {
     }, [history])
 
   const fetchData = React.useCallback(() => {
-	getUtilisationAssuranceId(provinceDataState._id)
+	getUaIdJour(provinceDataState._id)
         .then((response) => {
             setAssureList(response.data)
+			setFilterId(response.data.province_data[0]._id)
+			console.log("setFilterId" ,response.data.province_data[0]._id)
         
-        console.log('setProvinceList ', response.data)
+        console.log('setAssureList ', response.data)
         })
         .catch((error) => {
         console.log(error)
@@ -47,7 +65,7 @@ const Employee = (props) => {
 		.then((response) => {
 			setPuaList(response.data)
 		
-		console.log('setProvinceList ', response.data)
+		console.log('setPuaList ', response.data)
 		})
 		.catch((error) => {
 		console.log(error)
@@ -58,9 +76,33 @@ const Employee = (props) => {
     fetchData()
     }, [fetchData])
 
+	
+
+    useEffect(()=>{
+        const channel = pusher.subscribe('rawsur_notify');
+            channel.bind('message', function(data) {
+				
+				getUaIdJour(provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+					setFilterId(response.data.province_data[0]._id)
+
+					dispatch(setActive(true))
+				
+				console.log('pusher... ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+            });
+    },[] )
+
 	const handlePuaId = (id) => {
+		setTypeFilter("pua")
 		setPuaId(id)
-		getPuaIdJour(id)
+		setFilterId(id)
+		setActiveLink(0)
+		getPuaIdJour(id, provinceDataState._id)
 		.then((response) => {
 			setAssureList(response.data)
 		
@@ -75,58 +117,147 @@ const Employee = (props) => {
 		e.preventDefault()
 		// console.log(number)
 		setActiveLink(number)
+		if(type_filter === "prov" ){
 
-		if (number === 1) {
-			getPuaIdJour(puaId)
-			.then((response) => {
-				setAssureList(response.data)
+			if (number === 0) {
+				setFrequentation("journalière")
+				getUaIdJour(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 1)   {
+				setFrequentation("hebdomadaire")
+				getUaIdSemaine(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 2)   {
+				setFrequentation("mensuelle")
+				getUaIdMois(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 3)   {
+				setFrequentation("trimestrielle")
+				getUaIdTrimestre(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 4)   {
+				setFrequentation("semestrielle")
+				getUaIdSemestre(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 5)   {
+				setFrequentation("annuelle")
+				getUaIdAnnuel(filteId)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			}
+		} else {
 			
-			console.log('setProvinceList ', response.data)
-			})
-			.catch((error) => {
-			console.log(error)
-			})
-		} else if(number === 2)   {
-			getPuaIdMois(puaId)
-			.then((response) => {
-				setAssureList(response.data)
-			
-			console.log('setProvinceList ', response.data)
-			})
-			.catch((error) => {
-			console.log(error)
-			})
-		} else if(number === 3)   {
-			getPuaIdTrimestre(puaId)
-			.then((response) => {
-				setAssureList(response.data)
-			
-			console.log('setProvinceList ', response.data)
-			})
-			.catch((error) => {
-			console.log(error)
-			})
-		} else if(number === 4)   {
-			getPuaIdSemestre(puaId)
-			.then((response) => {
-				setAssureList(response.data)
-			
-			console.log('setProvinceList ', response.data)
-			})
-			.catch((error) => {
-			console.log(error)
-			})
-		} else if(number === 5)   {
-			getPuaIdAnnuel(puaId)
-			.then((response) => {
-				setAssureList(response.data)
-			
-			console.log('setProvinceList ', response.data)
-			})
-			.catch((error) => {
-			console.log(error)
-			})
+			if (number === 0) {
+				setFrequentation("journalière")
+				getPuaIdJour(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 1)   {
+				setFrequentation("hebdomadaire")
+				getPuaIdSemaine(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} else if(number === 2)   {
+				setFrequentation("mensuelle")
+				getPuaIdMois(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			}  else if(number === 3)   {
+				setFrequentation("trimestrielle")
+				getPuaIdTrimestre(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			}  else if(number === 4)   {
+				setFrequentation("semestrielle")
+				getPuaIdSemestre(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			}  else if(number === 5)   {
+				setFrequentation("annuelle")
+				getPuaIdAnnuel(filteId, provinceDataState._id)
+				.then((response) => {
+					setAssureList(response.data)
+				
+				console.log('setProvinceList ', response.data)
+				})
+				.catch((error) => {
+				console.log(error)
+				})
+			} 
+
 		}
+
 	}
   return (
 	<>
@@ -205,13 +336,23 @@ const Employee = (props) => {
 							</ul>
 						</div>
 						<div className="row">
-							<div className="col-lg-6 col-md-6">
+							<div className="col-lg-4 col-md-4">
 								<div className="card">
 									<div className="card-body w_sparkline">
 										<div className="details">
-											<span>Récus</span>
+											<span>Total</span>
 											<h3 className="mb-0">
-												<span className="counter">	<CountUp end={614} /></span>
+												<span className="counter">	
+													{/* <CountUp end={assureList && assureList.province_data !== undefined ? assureList.province_data[0].numOfAssurances : 0} /> */}
+														
+													<CountUp end={assureList && assureList.province_data !== undefined 
+														? 
+														assureList.province_data[0].numOfAssurances
+														: 
+														assureList && assureList.partenaire_data !== undefined 
+														? assureList.partenaire_data[0].numOfAssurances : 0} 
+													/>
+												</span>
 											</h3>
 										</div>
 										<div className="w_chart">
@@ -229,13 +370,53 @@ const Employee = (props) => {
 										</div>
 								*/}
 							</div>
-							<div className="col-lg-6 col-md-6">
+							<div className="col-lg-4 col-md-4">
 								<div className="card">
 									<div className="card-body w_sparkline">
 										<div className="details">
-											<span>Non recu</span>
+											<span className=''>Admis</span>
 											<h3 className="mb-0">
-												<CountUp end={124} />
+												<span className="counter">	
+													<CountUp end={assureList && assureList.province_data !== undefined 
+														? 
+														assureList.province_data[0].assurancesValide
+														: 
+														assureList && assureList.partenaire_data !== undefined 
+														? assureList.partenaire_data[0].assurancesValide : 0} 
+													/>
+												</span>
+											</h3>
+										</div>
+										<div className="w_chart">
+											<div id="mini-bar-chart1" className="mini-bar-chart" />
+										</div>
+									</div>
+								</div>
+								{/* 
+									<div className="w_chart">
+											<span
+												ref={this.sparkline1}
+												id="mini-bar-chart1"
+												className="mini-bar-chart"
+											></span>
+										</div>
+								*/}
+							</div>
+							<div className="col-lg-4 col-md-4">
+								<div className="card">
+									<div className="card-body w_sparkline">
+										<div className="details">
+											<span className=''>Non admis</span>
+											<h3 className="mb-0">
+												{/* <CountUp end={assureList && assureList.province_data !== undefined ? assureList.province_data[0].assurancesNonValide : 0} /> */}
+													
+												<CountUp end={assureList && assureList.province_data !== undefined 
+														? 
+														assureList.province_data[0].assurancesNonValide
+														: 
+														assureList && assureList.partenaire_data !== undefined 
+														? assureList.partenaire_data[0].assurancesNonValide : 0} 
+													/>
 												{/* <span >124</span> */}
 											</h3>
 										</div>
@@ -269,17 +450,17 @@ const Employee = (props) => {
 													<table className="table table-hover table-striped table-vcenter text-nowrap mb-0">
 														<thead>
 															<tr>
-																<th>Point d'accès </th>
+																<th>Centre partenaire</th>
 																<th></th>
 															</tr>
 														</thead>
 														<tbody>
 															
-														{puaList.map((item)=>{
+														{puaList.map((item,index )=>{
 																return(
 																	
 																	
-																<tr key={item._id}>
+																<tr key={item._id}  className={puaId === item._id ? "tr-active" : ""}>
 																	<td className="d-flex">
 																		<span
 																			className="avatar avatar-blue"
@@ -315,41 +496,28 @@ const Employee = (props) => {
 									<div className='col-md-8'>
 										<div className="card">
 											<div className="card-header">
-												<h3 className="card-title">Liste d'assurance</h3>
+												<h3 className="card-title">Fréquentation {frequetation} </h3>
 											</div>
 											<div className="card-body">
 												<div className="table-responsive">
 													<table className="table table-hover table-striped table-vcenter text-nowrap mb-0">
 														<thead>
 															<tr>
-																<th>#</th>
 																<th>Nom</th>
-																<th>Statut</th>
-																<th>Phone</th>
-																<th>Role</th>
+																<th>Nombre de visites</th>
+																<th>Admis</th>
+																<th>Rejete</th>
 																{/* <th>Action</th> */}
 															</tr>
 														</thead>
 														<tbody>
 																
-															{assureList.map((item)=>{
-																return(
+															{assureList && assureList.user !== undefined && assureList.user.map((item)=>{
+																return item.numOfAssurances > 0 && (
 																	
-																	
+																
+																
 																<tr key={item._id}>
-																	<td className="w40">
-																		<label className="custom-control custom-checkbox">
-																			<input
-																				type="checkbox"
-																				className="custom-control-input"
-																				name="example-checkbox1"
-																				defaultValue="option1"
-																			/>
-																			<span className="custom-control-label">
-																				&nbsp;
-																			</span>
-																		</label>
-																	</td>
 																	<td className="d-flex">
 																		<img
 																			className="avatar"
@@ -359,47 +527,24 @@ const Employee = (props) => {
 																			alt="fake_url"
 																		/>
 																		<div className="ml-3">
-																			<h6 className="mb-0">{item.user.nom} {item.user.postnom} {item.user.prenom}</h6>
+																			<h6 className="mb-0">{item.nom} {item.prenom}</h6>
 																			<span className="text-muted">
 																				{/* marshall-n@gmail.com */}
 																			</span>
 																		</div>
 																	</td>
 																	<td>
-																		<span>LA-0216</span>
+																		<span>{item.numOfAssurances}</span>
 																	</td>
 																	<td>
-																		<span>+ 264-625-4613</span>
+																		<span>{item.nbreStatutValide}</span>
 																	</td>
-																	<td>28 July, 2015</td>
-																	<td>Web Developer</td>
-																	<td>
-																		<button
-																			type="button"
-																			className="btn btn-icon btn-sm"
-																			title="View"
-																		>
-																			<i className="fa fa-eye" />
-																		</button>
-																		<button
-																			type="button"
-																			className="btn btn-icon btn-sm"
-																			title="Edit"
-																		>
-																			<i className="fa fa-edit" />
-																		</button>
-																		<button
-																			type="button"
-																			className="btn btn-icon btn-sm js-sweetalert"
-																			title="Delete"
-																			data-type="confirm"
-																		>
-																			<i className="fa fa-trash-o text-danger" />
-																		</button>
-																	</td>
+																	<td>{item.nbreStatutNonValide}</td>
 																</tr>
+															
 																)
 															})}
+
 															{/* <tr>
 																<td className="w40">
 																	<label className="custom-control custom-checkbox">
