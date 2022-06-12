@@ -9,6 +9,8 @@ import NotFound from './components/Authentication/404';
 import InternalServer from './components/Authentication/500';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
+// import { ToastContainer, toast } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
 	render() {
@@ -22,7 +24,8 @@ class App extends Component {
 						<Route path="/forgotpassword" component={ForgotPassword} />
 						<Route path="/notfound" component={NotFound} />
 						<Route path="/internalserver" component={InternalServer} />
-						<ProtectedRoute component={Layout} />
+						<Route component={Layout} />
+						{/* <ProtectedRoute component={Layout} /> */}
 					</Switch>
 				</Router>
 			</div>

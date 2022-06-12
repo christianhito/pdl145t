@@ -11,19 +11,19 @@ const Users = (props) => {
     
     const fetchData = React.useCallback(() => {
       
-        getUserAssure()
-        .then(response => {
-            // $('#user_liste').DataTable().destroy();
-            setUserList(response.data)
-            console.log('user list ', response.data)
+        // getUserAssure()
+        // .then(response => {
+        //     $('#user_liste').DataTable().destroy();
+        //     setUserList(response.data)
+        //     console.log('user list ', response.data)
             
-        })
-        .catch((error) => {
+        // })
+        // .catch((error) => {
             
-          console.log(error.response.data)
+        //   console.log(error.response.data)
         //   $('#user_liste').DataTable().destroy();
-          setUserList([])
-        })
+        //   setUserList([])
+        // })
 
   
     }, [])
@@ -53,12 +53,6 @@ const Users = (props) => {
 								</a>
 							</li>
 						</ul>
-						<div className="header-action">
-							<button onClick={handleShow} className="btn btn-primary">
-								<i className="fe fe-plus mr-2" />
-								Ajouter un utilisateur 
-							</button>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -66,26 +60,9 @@ const Users = (props) => {
 				<div className="container-fluid">
 					<div className="tab-content mt-3">
 						<div className="tab-pane fade show active" id="user-list" role="tabpanel">
-							<div className="card">
+							{/* <div className="card">
 								<div className="card-header">
 									<h3 className="card-title">Utilisateurs</h3>
-									<div className="card-options">
-										<form>
-											<div className="input-group">
-												<input
-													type="text"
-													className="form-control form-control-sm"
-													placeholder="Search something..."
-													name="s"
-												/>
-												<span className="input-group-btn ml-2">
-													<button className="btn btn-sm btn-default" type="submit">
-														<span className="fe fe-search" />
-													</button>
-												</span>
-											</div>
-										</form>
-									</div>
 								</div>
 								<div className="card-body">
 									<div className="table-responsive">
@@ -121,7 +98,7 @@ const Users = (props) => {
 																<span>{item.telephone}</span><br/>
 															</td>
 															<td>
-																{/* <span className="tag tag-danger">Super Admin</span> */}
+																<span className="tag tag-danger">Super Admin</span>
 															</td>
 															<td>{item.date_naissance}</td>
 															<td>
@@ -151,14 +128,17 @@ const Users = (props) => {
 											</tbody>
 										</table>
 									</div>
+									
 								</div>
-							</div>
+							</div> */}
+							
+							<iframe src="https://fortress.maptive.com/ver4/b9eeb7f2809d4baf600abba8ba7724cb&zoom=9" frameborder="0" width="1000" height="500" allow="geolocation"></iframe>
 						</div>
 					</div>
 				</div>
 			</div>
-			<AddUserModal show={show} handleClose={handleClose} />
-		</div>
+		</div>  
+
 	</>
   )
 }

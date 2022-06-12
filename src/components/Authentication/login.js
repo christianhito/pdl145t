@@ -62,6 +62,7 @@ const login = () => {
 
 			signup(data)
 				.then(response=>{
+					console.log(response)
 					setAuthentification(response.data.token, response.data.user)
 
 					if (isAuthentificated()) {

@@ -16,28 +16,28 @@ export const getPuaId = async (id) => {
 
 
 
-export const getPuaIdJour = async (id) => {
-    const response = await axios.get(`/api/utilisation-assurance/pua/${id}/jour`)
+export const getPuaIdJour = async (id, id_prov ) => {
+    const response = await axios.get(`/api/utilisation-assurance/province/${id_prov}/${id}/jour`)
 
     console.log(response)
     return response
 }
 
-export const getPuaIdSemaine  = async (id) => {
-    const response = await axios.get(`/api/utilisation-assurance/pua/${id}/semaine`)
+export const getPuaIdSemaine  = async (id, id_prov) => {
+    const response = await axios.get(`/api/utilisation-assurance/province/${id_prov}/${id}/semaine`)
 
     console.log(response)
     return response
 }
 
-export const getPuaIdMois = async (id) => {
-    const response = await axios.get(`/api/utilisation-assurance/pua/${id}/mois`)
+export const getPuaIdMois = async (id, id_prov) => {
+    const response = await axios.get(`/api/utilisation-assurance/province/${id_prov}/${id}/mois`)
 
     console.log(response)
     return response
 }
 
-export const getPuaIdTrimestre  = async (id) => {
+export const getPuaIdTrimestre  = async (id, id_prov) => {
     const response = await axios.get(`/api/utilisation-assurance/pua/${id}/trimestre`)
 
     console.log(response)
@@ -45,14 +45,14 @@ export const getPuaIdTrimestre  = async (id) => {
 }
 
 export const getPuaIdSemestre  = async (id) => {
-    const response = await axios.get(`/api/utilisation-assurance/pua/${id}/semestre`)
+    const response = await axios.get(`/api/utilisation-assurance/${id}/semestre`)
 
     console.log(response)
     return response
 }
 
 export const getPuaIdAnnuel  = async (id) => {
-    const response = await axios.get(`/api/utilisation-assurance/pua/${id}/annuel`)
+    const response = await axios.get(`/api/utilisation-assurance/${id}/annuel`)
 
     console.log(response)
     return response

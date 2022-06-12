@@ -8,6 +8,8 @@ import { useHistory } from 'react-router-dom';
 import { getProvince } from '../../../api/province';
 import { setProvince } from '../../../actions/provinceAction';
 import { useDispatch } from 'react-redux';
+import "leaflet.heat";
+import { addressPoints } from "./addressPoints";
 
 function Info({provinceList}) {
 	let history = useHistory()
@@ -35,12 +37,12 @@ function Info({provinceList}) {
     var div;
     
     function getColor(d) {
-      return  d > 400 ? '#cb181d' :
+      return  d > 400 ? '#1c478b' :
       // d > 300 ? '#fb6a4a' :
       d > 300 ? '#1c478b' :
-      d > 200  ? '#fcae91' :
-      d > 100  ? '#fee5d9' :
-                  '#fff7fb';
+      d > 200  ? '#1c478b' :
+      d > 100  ? '#FFFF00' :
+                  '#FFFF00';
     // 1c478b
     }
 
@@ -57,8 +59,8 @@ function Info({provinceList}) {
           color: 'white',
           dashArray: '3',
           fillOpacity: 0.7,
-          fillColor: getColor(302)
-          // fillColor: getColor(feature.properties.liveCases)
+          // fillColor: getColor(10)
+          fillColor: getColor(feature.properties.liveCases)
         };
       }
 
@@ -91,9 +93,11 @@ function Info({provinceList}) {
       function highlightFeature(e) {
         var layer = e.target;
 
+        // add_layer(e.target)
+
         layer.setStyle({
           weight: 5,
-          color: '#666',
+          color: '#FF0000',
           dashArray: '',
           fillOpacity: 0.7
         });
@@ -107,12 +111,15 @@ function Info({provinceList}) {
 
     var geojson;
     function resetHighlight(e) {
+      
+      // remove_layer(e.target)
       geojson.resetStyle(e.target);
       info.update();
     }
 
 	function zoomToFeature(e) {
     var layer = e.target;
+    add_layer(e.target)
 		// map.fitBounds(e.target.getBounds());
     // setVilleData(layer.feature.properties.ville)
     // console.log("layer is...", layer.feature.properties.name)
@@ -125,13 +132,58 @@ function Info({provinceList}) {
     
 	}
 
+  function add_layer(value){
+    console.log(value)
+    if(map.hasLayer(value)) {
+        map.removeLayer(value);
+    }else{
+        map.addLayer(value);
+    }
+  }
+
+  function test(e){
+  }
+
+  function remove_layer(value){
+    console.log(value)
+    if(map.hasLayer(value)) {
+        map.addLayer(value);
+    }else{
+        map.removeLayer(value);
+    }
+  }
+
+  // remove_layer
+
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature
+			click: zoomToFeature,
+      zoom: test
 		});
 	}
+
+  // const points = [
+    // [0.4975, 29.328611, 0.5], // lat, lng, intensity
+    // [50.6, 30.4, 0.5],
+  // ];
+
+    // L.heatLayer(points).addTo(map);
+
+  // var heat = L.heatLayer([
+    // [0.4975, 29.328611, 0.2], // lat, lng, intensity
+    // [50.6, 30.4, 0.5],
+  // ], {radius: 25}).addTo(map);
+
+  
+  const points = addressPoints
+  ? addressPoints.map((p) => {
+      return [p[0], p[1]];
+    })
+  : [];
+
+L.heatLayer(points).addTo(map);
 
 
       info.addTo(map);
