@@ -108,6 +108,7 @@ const Map = () => {
             <Link to="/hr-users">Résidence Commandant FARDC</Link> <br/>
             <img src={testimg} alt='test img' /> 
           </Popup>
+        </Marker>
 
 </MapContainer>
       </div>
