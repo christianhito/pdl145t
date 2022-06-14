@@ -81,14 +81,33 @@ const Map = () => {
         </Marker>
 
         <Marker 
-        position={[1.4513316666666665, 29.882810000000003]} 
-          icon={new Icon({iconUrl: require("../../../assets/images/icons/education.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        position={[1.45139166666666, 29.87638833333333]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/city-hall.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
         >
           <Popup>
-            <Link to="/hr-users">HITO</Link> <br/>
+            <Link to="/hr-users">Résidence Administrateur du territoire</Link> <br/>
             <img src={testimg} alt='test img' /> 
           </Popup>
         </Marker>
+
+        <Marker 
+        position={[1.4589283333333334, 29.872978333333336]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/city-hall.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">Résidence Commandant FARDC</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+        <Marker 
+        position={[1.4481133333333331, 29.86683833333333]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/cil-pump.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">Résidence Commandant FARDC</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
 
 </MapContainer>
       </div>
