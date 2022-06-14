@@ -102,10 +102,61 @@ const Map = () => {
 
         <Marker 
         position={[1.4481133333333331, 29.86683833333333]} 
-          icon={new Icon({iconUrl: require("../../../assets/images/icons/cil-pump.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/oil-pump.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
         >
           <Popup>
             <Link to="/hr-users">Résidence Commandant FARDC</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+        <Marker 
+        position={[1.4516483333333334, 29.875423333333334]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/oil-pump.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">Terrain vide, domaine de l'Etat</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+        <Marker 
+        position={[1.4456466666666667, 29.89646833333334]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/oil-pump.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">Terrain vide, domaine de l'Etat</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+        <Marker 
+        position={[1.4608083333333333, 29.883413333333337]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/hospital.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">Comprends quatre bâtiment dont une maternité à réhabiliter et équiper, un bâtiment consultation/pharmacie à réhabiliter et équiper, un bâtiment salle d'opération/labo à construire car à très mauvais état, un bâtiment hospitalisation à réhabiliter, une maison de médecin à réhabiliter.</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+
+      <Marker 
+        position={[-5.383048333333333, 25.731521666666662]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/education.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">l'école primaire YEMBA est construite en paille et comprend 8 salles de classes et un bureau pour le directeur cela demande une reconstruction totale</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
+      <Marker 
+        position={[-5.383048333333333, 25.731528333333337]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/hospital.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">l'école primaire YEMBA est construite en paille et comprend 8 salles de classes et un bureau pour le directeur cela demande une reconstruction totale</Link> <br/>
             <img src={testimg} alt='test img' /> 
           </Popup>
         </Marker>
