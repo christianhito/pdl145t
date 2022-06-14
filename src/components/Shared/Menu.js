@@ -451,6 +451,114 @@ class Menu extends Component {
 					},
 				]
 			},
+			
+			{
+				"id": 60,
+				"icon": "fa fa-folder",
+				"label": "Sud-Kivu",
+				content: [
+					{
+						"id": 61,
+						"label": "Fizi",
+						"to": "/territoire-fizi"
+					},
+					{
+						"id": 62,
+						"label": "Kabare",
+						"to": "/territoire-kabare"
+					},
+					{
+						"id": 63,
+						"label": "Kelehe",
+						"to": "/territoire-kelehe"
+					},
+					{
+						"id": 64,
+						"label": "Mwenga",
+						"to": "/territoire-mwenga"
+					},
+					{
+						"id": 65,
+						"label": "Shabunda",
+						"to": "/territoire-Shabunda"
+					},
+					{
+						"id": 66,
+						"label": "Uvira",
+						"to": "/territoire-uvira"
+					},
+					{
+						"id": 67,
+						"label": "Walungu",
+						"to": "/territoire-walungu"
+					},
+				]
+			},
+			// Kk
+			{
+				"id": 70,
+				"icon": "fa fa-folder",
+				"label": "Haut-Lomami",
+				content: [
+					{
+						"id": 71,
+						"label": "Kamina",
+						"to": "/territoire-kamina"
+					},
+					{
+						"id": 72,
+						"label": "Kaniama",
+						"to": "/territoire-kaniama"
+					},
+					{
+						"id": 73,
+						"label": "Kabongo",
+						"to": "/territoire-kabongo"
+					},
+					{
+						"id": 74,
+						"label": "Malemba-Nkulu",
+						"to": "/territoire-malemba-Nkulu"
+					},
+					{
+						"id": 75,
+						"label": "Bukama",
+						"to": "/territoire-Bukama"
+					},
+				]
+			},
+			{
+				"id": 80,
+				"icon": "fa fa-folder",
+				"label": "Lualaba",
+				content: [
+					{
+						"id": 81,
+						"label": "Mutshatsha",
+						"to": "/territoire-mutshatsha"
+					},
+					{
+						"id": 82,
+						"label": "Lubudi",
+						"to": "/territoire-lubudi"
+					},
+					{
+						"id": 83,
+						"label": "Dilolo",
+						"to": "/territoire-dilolo"
+					},
+					{
+						"id": 84,
+						"label": "Sandoa",
+						"to": "/territoire-sandoa"
+					},
+					{
+						"id": 85,
+						"label": "Kapanga",
+						"to": "/territoire-kapanga"
+					},
+				]
+			},
 			// {
 			// 	"id": 27,
 			// 	"icon": "icon-lock",

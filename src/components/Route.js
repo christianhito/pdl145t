@@ -93,6 +93,23 @@ import TerritoireMambasa from './Ituri/TerritoireMambasa';
 import TerritoireDjugu from './Ituri/TerritoireDjugu';
 import TerritoireMahagi from './Ituri/TerritoireMahagi';
 import TerritoireAru from './Ituri/TerritoireAru';
+import TerritoireFizi from './SudKivu/TerritoireFizi';
+import TerritoireKabare from './SudKivu/TerritoireKabare';
+import TerritoireKelehe from './SudKivu/TerritoireKelehe';
+import TerritoireMwenga from './SudKivu/TerritoireMwenga';
+import TerritoireShabunda from './SudKivu/TerritoireShabunda';
+import TerritoireUvira from './SudKivu/TerritoireUvira';
+import TerritoireWalungu from './SudKivu/TerritoireWalungu';
+import TerritoireKabongo from './HautLomami/TerritoireKabongo';
+import TerritoireBukama from './HautLomami/TerritoireBukama';
+import TerritoireMalembaNkulu from './HautLomami/TerritoireMalembaNkulu';
+import TerritoireKaniama from './HautLomami/TerritoireKaniama';
+import TerritoireKamina from './HautLomami/TerritoireKamina';
+import TerritoireKapanga from './Lualaba/TerritoireKapanga';
+import TerritoireSandoa from './Lualaba/TerritoireSandoa';
+import TerritoireDilolo from './Lualaba/TerritoireDilolo';
+import TerritoireLubudi from './Lualaba/TerritoireLubudi';
+import TerritoireMutshatsha from './Lualaba/TerritoireMutshatsha';
 
 const Routes = [
     {
@@ -775,6 +792,135 @@ const Routes = [
         exact: true,
         pageTitle: "Territoire de Aru",
         component: TerritoireAru
+    },
+    
+    
+    // SUd-Kivu kK
+    {
+        path: "/territoire-fizi",
+        name: 'Territoire-fizi',
+        exact: true,
+        pageTitle: "Territoire de Fizi",
+        component: TerritoireFizi
+    },
+    {
+        path: "/territoire-kabare",
+        name: 'Territoire-kabare',
+        exact: true,
+        pageTitle: "Territoire de Kabare",
+        component: TerritoireKabare
+    },
+    {
+        path: "/territoire-kelehe",
+        name: 'Territoire-kelehe',
+        exact: true,
+        pageTitle: "Territoire de Kelehe",
+        component: TerritoireKelehe
+    },
+    {
+        path: "/territoire-mwenga",
+        name: 'Territoire-mwenga',
+        exact: true,
+        pageTitle: "Territoire de Mwenga",
+        component: TerritoireMwenga
+    },
+    {
+        path: "/territoire-shabunda",
+        name: 'Territoire-shabunda',
+        exact: true,
+        pageTitle: "Territoire de Shabunda",
+        component: TerritoireShabunda
+    },
+    {
+        path: "/territoire-uvira",
+        name: 'Territoire-uvira',
+        exact: true,
+        pageTitle: "Territoire de Uvira",
+        component: TerritoireUvira
+    },
+    {
+        path: "/territoire-walungu",
+        name: 'Territoire-walungu',
+        exact: true,
+        pageTitle: "Territoire de Walungu",
+        component: TerritoireWalungu
+    },
+
+    
+    
+    // HautLomami kK
+    {
+        path: "/territoire-kamina",
+        name: 'Territoire-kamina',
+        exact: true,
+        pageTitle: "Territoire de Kamina",
+        component: TerritoireKamina
+    },
+    {
+        path: "/territoire-kaniama",
+        name: 'Territoire-kaniama',
+        exact: true,
+        pageTitle: "Territoire de Kaniama",
+        component: TerritoireKaniama
+    },
+    {
+        path: "/territoire-kabongo",
+        name: 'Territoire-kabongo',
+        exact: true,
+        pageTitle: "Territoire de Kabongo",
+        component: TerritoireKabongo
+    },
+    {
+        path: "/territoire-malemba-nkulu",
+        name: 'Territoire-malemba-nkulu',
+        exact: true,
+        pageTitle: "Territoire de Malemba-Nkulu",
+        component: TerritoireMalembaNkulu
+    },
+    {
+        path: "/territoire-bukama",
+        name: 'Territoire-bukama',
+        exact: true,
+        pageTitle: "Territoire de Bukama",
+        component: TerritoireBukama
+    },
+    
+    
+    // Lualaba kK
+    {
+        path: "/territoire-mutshatsha",
+        name: 'Territoire-mutshatsha',
+        exact: true,
+        pageTitle: "Territoire de Mutshatsha",
+        component: TerritoireMutshatsha
+    },
+    {
+        path: "/territoire-lubudi",
+        name: 'Territoire-lubudi',
+        exact: true,
+        pageTitle: "Territoire de Lubudi",
+        component: TerritoireLubudi
+    },
+    {
+        path: "/territoire-dilolo",
+        name: 'Territoire-dilolo',
+        exact: true,
+        pageTitle: "Territoire de Dilolo",
+        component: TerritoireDilolo
+    },
+    {
+        path: "/territoire-sandoa",
+        name: 'Territoire-sandoa',
+        exact: true,
+        pageTitle: "Territoire de Sandoa",
+        component: TerritoireSandoa
+    },
+    {
+        path: "/territoire-kapanga",
+        name: 'Territoire-kapanga',
+        exact: true,
+        pageTitle: "Territoire de Kapanga",
+        component: TerritoireKapanga
     },
 ];
 

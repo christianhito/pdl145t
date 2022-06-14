@@ -15,6 +15,8 @@ import { getProvince } from '../../../api/province';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import { Link } from 'react-router-dom';
 import testimg from '../../../assets/images/test.jpeg'
+import Legend from './Legend';
+import school from "../../../assets/images/icons/education.png"
 
 
 const Map = () => {
@@ -66,10 +68,11 @@ const Map = () => {
             onEachFeature={onEachCountry}
           /> */}
       <Info map={map} provinceList={provinceList} />
+      <Legend />
       
         <Marker 
         position={[0.4975, 29.328611]} 
-          icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/education.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
         >
           <Popup>
             <Link to="/hr-users">Village Kabiona 2, Beni, République Démocratique du Congo.</Link> <br/>

@@ -59,7 +59,9 @@ const Report = (props) => {
         </MapContainer>
         
         </div>  */}
+        <div className='container-fluid'>
           <Map/>
+        </div>
     </>
   )
 }

@@ -3,6 +3,11 @@ import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON, useMap } from 'react-leaflet'
 import mapDefault from './mapDefault.json'
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import school from "../../../assets/images/icons/education.png"
+import administratif from "../../../assets/images/icons/city-hall.png"
+import healthcare from "../../../assets/images/icons/healthcare.png"
+import hospital from "../../../assets/images/icons/hospital.png"
+import forage from "../../../assets/images/icons/oil-pump.png"
 import {Icon} from 'leaflet'
 import { useHistory } from 'react-router-dom';
 import { getProvince } from '../../../api/province';
@@ -164,26 +169,15 @@ function Info({provinceList}) {
 		});
 	}
 
-  // const points = [
-    // [0.4975, 29.328611, 0.5], // lat, lng, intensity
-    // [50.6, 30.4, 0.5],
-  // ];
-
-    // L.heatLayer(points).addTo(map);
-
-  // var heat = L.heatLayer([
-    // [0.4975, 29.328611, 0.2], // lat, lng, intensity
-    // [50.6, 30.4, 0.5],
-  // ], {radius: 25}).addTo(map);
 
   
-  const points = addressPoints
-  ? addressPoints.map((p) => {
-      return [p[0], p[1]];
-    })
-  : [];
+//   const points = addressPoints
+//   ? addressPoints.map((p) => {
+//       return [p[0], p[1]];
+//     })
+//   : [];
 
-L.heatLayer(points).addTo(map);
+// L.heatLayer(points).addTo(map);
 
 
       info.addTo(map);
@@ -200,7 +194,7 @@ L.heatLayer(points).addTo(map);
     
     <Marker 
     position={[-4.3217055, 15.3125974]} 
-      icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} 
+      icon={new Icon({iconUrl: school, iconSize: [25, 41], iconAnchor: [12, 41]})} 
     >
       <Popup>
         A pretty CSS3 popup. <br /> Easily customizable.
