@@ -79,6 +79,17 @@ const Map = () => {
             <img src={testimg} alt='test img' /> 
           </Popup>
         </Marker>
+
+        <Marker 
+        position={[1.4513316666666665, 29.882810000000003]} 
+          icon={new Icon({iconUrl: require("../../../assets/images/icons/education.png"), iconSize: [25, 41], iconAnchor: [12, 41]})} 
+        >
+          <Popup>
+            <Link to="/hr-users">HITO</Link> <br/>
+            <img src={testimg} alt='test img' /> 
+          </Popup>
+        </Marker>
+
 </MapContainer>
       </div>
     )
